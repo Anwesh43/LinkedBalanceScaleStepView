@@ -221,4 +221,13 @@ class BalanceScaleStepView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : BalanceScaleStepView {
+            val view : BalanceScaleStepView = BalanceScaleStepView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
