@@ -64,3 +64,21 @@ fun Canvas.drawBSSNode(i : Int, scale : Float, paint : Paint) {
     drawLine(-size, -bssSize * sc1.divideScale(0, 2), size, -bssSize * sc1.divideScale(1, 2), paint)
     restore()
 }
+
+class BalanceScaleStepView(ctx : Context) : View(ctx) {
+
+    private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+    override fun onDraw(canvas : Canvas) {
+
+    }
+
+    override fun onTouchEvent(event : MotionEvent) : Boolean {
+        when (event.action) {
+            MotionEvent.ACTION_DOWN -> {
+
+            }
+        }
+        return true
+    }
+}
