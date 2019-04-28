@@ -22,6 +22,7 @@ val foreColor : Int = Color.parseColor("#673AB7")
 val backColor : Int = Color.parseColor("#BDBDBD")
 val bssFactor : Float = 6f
 val bssWidthFactor : Float = 7f
+val delay : Long = 20
 
 fun Int.inverse() : Float = 1f / this
 fun Float.scaleFactor() : Float = Math.floor(this / scDiv).toFloat()
@@ -53,6 +54,7 @@ fun Canvas.drawBSSNode(i : Int, scale : Float, paint : Paint) {
     paint.strokeWidth = Math.min(w, h) / strokeFactor
     paint.strokeCap = Paint.Cap.ROUND
     save()
+    translate(w / 2, gap * (i + 1))
     rotate(90f * sc2)
     for (j in 0..(lines - 1)) {
         val sc : Float = sc1.divideScale(j, lines)
@@ -109,7 +111,7 @@ class BalanceScaleStepView(ctx : Context) : View(ctx) {
             if (animated) {
                 cb()
                 try {
-                    Thread.sleep(50)
+                    Thread.sleep(delay)
                     view.invalidate()
                 } catch(ex : Exception) {
 
